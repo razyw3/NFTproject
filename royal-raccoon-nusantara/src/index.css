@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cinzel", serif;
+
+  --color-luxury-black: #0B0B0F;
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-purple: #6C3BFF;
+  --color-luxury-frame: #1A1A23;
+
+  /* Fluid typography using clamp */
+  --font-size-fluid-hero: clamp(2.5rem, 10vw, 10rem);
+  --font-size-fluid-h2: clamp(2rem, 6vw, 6rem);
+}
+
+@layer base {
+  body {
+    @apply bg-luxury-black text-white font-sans antialiased selection:bg-luxury-gold selection:text-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-20 px-6 sm:py-32 sm:px-12 lg:py-48 lg:px-24;
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #D4AF37 0%, #F9E076 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.2));
+  }
+
+  .premium-blur {
+    backdrop-filter: blur(24px) saturate(180%);
+    background-color: rgba(11, 11, 15, 0.7);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  }
+
+  .hero-mask {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+
+  .glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-gold {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .divine-glow {
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+    border: 1px solid #D4AF37;
+  }
+
+  .purple-aura {
+    background: radial-gradient(circle at center, rgba(108, 59, 255, 0.15) 0%, transparent 70%);
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-luxury-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-luxury-gold/50 rounded-full;
+}
